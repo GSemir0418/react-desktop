@@ -1,0 +1,105 @@
+@import '../shared/helper';
+
+.home {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  > header {
+    border: 1px solid red;
+    width: px(1920);
+    margin: 0 auto;
+    height: px(60);
+    background:url('../assets/head-bg.png');
+    background-size: cover;
+  }
+  > footer {
+    border: 1px solid red;
+    flex: 1;
+    height: px(100);
+    margin-top: px(1) 0 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  > main {
+    padding: px(20);
+    border: 1px solid red;
+    margin: 0 auto; // main元素居中
+    height: px(940);
+    width: px(1920);
+    flex: 1;
+    display: grid;
+    grid-template:
+      'box1 box2' 1fr
+      'box3 box2' 2fr/1fr 4fr;
+    grid-column-gap: px(20);
+    grid-row-gap: px(20);
+    .userInfoCard {
+      grid-area: box1;
+    }
+    .appList {
+      grid-area: box3;
+      display: flex;
+      justify-content: space-between;
+      align-content: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .appListItem {
+        position: relative;
+        border-radius: 10%;
+        width: px(100);
+        height: px(100);
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+        margin: px(6) ;
+        background:#00000003;
+        /* 盒子阴影 */
+        box-shadow: px(10) px(3) px(5) #00000033,
+          px(-1) px(-1) px(1) #ffffff94;
+        /* 过渡时间 ease-out是指先快后慢 */
+        transition: all 0.1s ease-out;
+        &:hover {
+          /* inset是内部阴影 默认是外部阴影outset */
+          box-shadow: 0 0 0 #00000033, 0 0 0 #ffffff71,
+            inset px(3) px(3) px(5) #0000001a,
+            inset px(-3) px(-3) px(5) #ffffff7a;
+            background:#0000004f;
+          .closeImg {
+            display: inline-flex;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            width: px(20);
+            height: px(20);
+            cursor: pointer;
+          }
+          .imgIcon{
+            transition: all 0.1s ease-out;
+            width: px(45);
+            height: px(45);
+          }
+        }
+        .imgIcon {
+          margin-top: px(10);
+          height: px(40);
+          width: px(40);
+          cursor: pointer;
+        }
+        .textDesc {
+          color: white;
+          margin: px(10) auto;
+          cursor: pointer;
+        }
+        .closeImg {
+          display: none;
+        }
+      }
+    }
+    .componentMainWrapper {
+      grid-area: box2;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+@function px($n) {
+  @return $n/1920 * 100rem;
+}
+$font-hei:-apple-system,Arial
